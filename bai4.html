@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Form</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f5f5f5;
+        }
+        form {
+            width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        fieldset {
+            margin-bottom: 15px;
+        }
+        legend {
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+        }
+        td {
+            padding: 6px;
+            vertical-align: top;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 95%;
+        }
+        .actions {
+            text-align: right;
+        }
+    </style>
+<body>
+
+<form class="form-box">
+
+    <!-- BASIC INFO -->
+    <fieldset>
+        <legend>Basic Info</legend>
+        <table>
+             <tr>
+                <td><label>Employee ID</label></td>
+                <td><input type="text" value="9"></td>
+            </tr>
+
+            <tr>
+                <td class="label">Last Name *</td>
+                <td><input type="text" value="Dodsworth"></td>
+            </tr>
+
+            <tr>
+                <td class="label">First Name *</td>
+                <td><input type="text" value="Anne"></td>
+            </tr>
+
+            <tr>
+                <td class="label">Gender</td>
+                <td class="middle">
+                    <div class="gender">
+                        <label><input type="radio" name="gender"> Male</label>
+                        <label><input type="radio" name="gender"> Female</label>
+                        <label><input type="radio" name="gender"> XXX</label>
+                        <label><input type="radio" name="gender" checked> ZZZ</label>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="label">Title</td>
+                <td><input type="text" value="Sales Representative"></td>
+            </tr>
+
+            <tr>
+                <td class="label">Suffix</td>
+                <td><input type="text" value="Ms."></td>
+            </tr>
+
+            <tr>
+                <td class="label">BirthDate</td>
+                <td><input type="text" value="1969-07-02 00:00:00"></td>
+            </tr>
+
+            <tr>
+                <td class="label">HireDate</td>
+                <td><input type="text" value="1994-11-15 00:00:00"></td>
+            </tr>
+
+            <tr>
+                <td class="label">SSN if applicable</td>
+                <td><input type="text"></td>
+            </tr>
+
+            <tr>
+                <td class="label">Reports To</td>
+                <td>
+                    <select>
+                        <option>Buchanan</option>
+                        <option>Fuller</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <!-- CONTACT INFO -->
+    <fieldset>
+        <legend>Contact Info</legend>
+        <table>
+            <tr>
+                <td class="label">Email</td>
+                <td><input type="email" placeholder="name@example.com"></td>
+            </tr>
+
+            <tr>
+                <td class="label">Address</td>
+                <td><input type="text" value="7 Houndstooth Rd."></td>
+            </tr>
+
+            <tr>
+                <td class="label">City</td>
+                <td><input type="text" value="London"></td>
+            </tr>
+
+            <tr>
+                <td class="label">Region</td>
+                <td><input type="text"></td>
+            </tr>
+
+            <tr>
+                <td class="label">Postal Code</td>
+                <td><input type="text" value="WG2 7LT"></td>
+            </tr>
+
+            <tr>
+                <td class="label">Country</td>
+                <td>
+                    <select>
+                        <option>Russian Federation</option>
+                        <option>Viet Nam</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="label">US Home Phone</td>
+                <td><input type="text" value="(234)234-2342"></td>
+            </tr>
+
+            <tr>
+                <td class="label">Photo</td>
+                <td><input type="file"></td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <!-- OPTIONAL INFO -->
+    <fieldset>
+        <legend>Optional Info</legend>
+
+        <label>Notes</label><br>
+        <textarea>Anne has a BA degree in English from St. Lawrence College.
+She is fluent in French and German.</textarea><br><br>
+
+      <tr>
+    <td class="label">Preferred Shift</td>
+    <td class="shift-col">
+        <label><input type="checkbox"> Regular</label>
+        <label><input type="checkbox"> Grave Yard</label>
+    </td>
+</tr>
+    <tr>
+        <label>Active?</label>
+        <input type="checkbox" checked></tr>
+    </fieldset>
+
+    <!-- CAPTCHA -->
+    <table>
+        <tr>
+            <td class="label">Are you human?</td>
+            <td>
+                <strong>TIDAHO</strong>
+                <small>Click to change</small><br>
+                <input type="text">
+            </td>
+        </tr>
+    </table>
+
+    <p class="required">* required</p>
+
+    <div class="actions">
+        <button type="submit">Submit</button>
+        <button type="reset">Cancel</button>
+    </div>
+
+</form>
+
+</body>
+</html>
