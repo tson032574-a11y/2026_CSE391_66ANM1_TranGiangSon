@@ -1,0 +1,43 @@
+body{
+font-family:Arial;
+background:#f2f2f2;
+}
+
+.container{
+width:420px;
+margin:30px auto;
+background:white;
+padding:20px;
+}
+
+input,select,textarea{
+width:100%;
+padding:8px;
+margin-top:5px;
+margin-bottom:10px;
+}
+
+small{
+color:red;
+}
+
+#charCount{
+font-size:13px;
+text-align:right;
+}
+
+#confirmBox{
+display:none;
+background:#fff;
+width:400px;
+margin:20px auto;
+padding:20px;
+border:1px solid #ccc;
+}
+
+#success{
+text-align:center;
+font-size:20px;
+color:green;
+margin-top:20px;
+}

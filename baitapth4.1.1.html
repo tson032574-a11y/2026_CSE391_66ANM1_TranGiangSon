@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Quản lý điểm sinh viên</title>
+
+<style>
+body{
+font-family: Arial;
+margin:40px;
+}
+
+input{
+padding:6px;
+margin-right:10px;
+}
+
+button{
+padding:6px 12px;
+}
+
+table{
+border-collapse: collapse;
+width:600px;
+margin-top:20px;
+}
+
+th,td{
+border:1px solid #ccc;
+padding:8px;
+text-align:center;
+}
+
+th{
+background:#f2f2f2;
+}
+
+.low-score{
+background-color:yellow;
+}
+
+.stats{
+margin-top:10px;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Quản lý điểm sinh viên</h2>
+
+<input id="nameInput" placeholder="Họ tên">
+<input id="scoreInput" placeholder="Điểm (0-10)" type="number" step="0.1">
+
+<button id="addBtn">Thêm</button>
+
+<table>
+
+<thead>
+<tr>
+<th>STT</th>
+<th>Họ tên</th>
+<th>Điểm</th>
+<th>Xếp loại</th>
+<th>Thao tác</th>
+</tr>
+</thead>
+
+<tbody id="tableBody"></tbody>
+
+</table>
+
+<div class="stats" id="stats"></div>
+
+<script>
+
+let students = []
+
+const nameInput = document.getElementById("nameInput")
+const scoreInput = document.getElementById("scoreInput")
+const tableBody = document.getElementById("tableBody")
+const stats = document.getElementById("stats")
+
+function getRank(score){
+
+if(score >= 8.5) return "Giỏi"
+if(score >= 7) return "Khá"
+if(score >= 5) return "Trung bình"
+return "Yếu"
+
+}
+
+function renderTable(){
+
+tableBody.innerHTML=""
+
+students.forEach((s,index)=>{
+
+let rowClass = s.score < 5 ? "low-score" : ""
+
+tableBody.innerHTML +=
+`<tr class="${rowClass}">
+<td>${index+1}</td>
+<td>${s.name}</td>
+<td>${s.score}</td>
+<td>${getRank(s.score)}</td>
+<td>
+<button data-index="${index}" class="deleteBtn">Xóa</button>
+</td>
+</tr>`
+
+})
+
+updateStats()
+
+}
+
+function updateStats(){
+
+let total = students.length
+
+let avg = 0
+
+if(total>0){
+
+let sum = students.reduce((a,b)=>a+b.score,0)
+
+avg = (sum/total).toFixed(2)
+
+}
+
+stats.textContent =
+`Tổng sinh viên: ${total} | Điểm trung bình: ${avg}`
+
+}
+
+function addStudent(){
+
+let name = nameInput.value.trim()
+let score = parseFloat(scoreInput.value)
+
+if(name===""){
+alert("Họ tên không được trống")
+return
+}
+
+if(isNaN(score) || score<0 || score>10){
+alert("Điểm phải từ 0 đến 10")
+return
+}
+
+students.push({
+name:name,
+score:score
+})
+
+renderTable()
+
+nameInput.value=""
+scoreInput.value=""
+
+nameInput.focus()
+
+}
+
+document.getElementById("addBtn").addEventListener("click",addStudent)
+
+scoreInput.addEventListener("keypress",function(e){
+
+if(e.key==="Enter"){
+addStudent()
+}
+
+})
+
+tableBody.addEventListener("click",function(e){
+
+if(e.target.classList.contains("deleteBtn")){
+
+let index = e.target.dataset.index
+
+students.splice(index,1)
+
+renderTable()
+
+}
+
+})
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Multi Step Form</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Đăng ký tài khoản</h2>
+
+<div class="progress">
+<div id="progressBar"></div>
+</div>
+
+<div id="progressText"></div>
+
+<!-- STEP 1 -->
+<div class="step">
+
+<label>Họ và tên</label>
+<input type="text" id="fullname">
+<div class="error" id="fullnameError"></div>
+
+<label>Ngày sinh</label>
+<input type="date" id="dob">
+<div class="error" id="dobError"></div>
+
+<label>Giới tính</label><br>
+<input type="radio" name="gender" value="Nam"> Nam
+<input type="radio" name="gender" value="Nữ"> Nữ
+<div class="error" id="genderError"></div>
+
+<button onclick="nextStep()">Tiếp theo</button>
+
+</div>
+
+
+<!-- STEP 2 -->
+<div class="step">
+
+<label>Email</label>
+<input type="text" id="email">
+<div class="error" id="emailError"></div>
+
+<label>Mật khẩu</label>
+<input type="password" id="password">
+<div class="error" id="passwordError"></div>
+
+<label>Xác nhận mật khẩu</label>
+<input type="password" id="confirm">
+<div class="error" id="confirmError"></div>
+
+<div class="btn-group">
+<button onclick="prevStep()">Quay lại</button>
+<button onclick="nextStep()">Tiếp theo</button>
+</div>
+
+</div>
+
+
+<!-- STEP 3 -->
+<div class="step">
+
+<h3>Xác nhận thông tin</h3>
+
+<p><b>Họ tên:</b> <span id="sumName"></span></p>
+<p><b>Ngày sinh:</b> <span id="sumDob"></span></p>
+<p><b>Giới tính:</b> <span id="sumGender"></span></p>
+<p><b>Email:</b> <span id="sumEmail"></span></p>
+
+<div class="btn-group">
+<button onclick="prevStep()">Quay lại</button>
+<button onclick="finish()">Hoàn tất</button>
+</div>
+
+</div>
+
+<div id="success"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
